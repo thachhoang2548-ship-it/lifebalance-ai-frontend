@@ -11,7 +11,7 @@ const FuturisticLoader = () => {
 
       <div className="flex flex-col items-center gap-2">
         <h3 className="text-xl font-bold text-text-light tracking-wide animate-pulse">
-          AI ANALYSIS IN PROGRESS
+          AI ĐANG PHÂN TÍCH TRIỆU CHỨNG
         </h3>
         <div className="flex gap-1">
           <span className="w-2 h-2 bg-primary-darker rounded-full animate-[bounce_1s_infinite_0ms]"></span>
@@ -19,7 +19,7 @@ const FuturisticLoader = () => {
           <span className="w-2 h-2 bg-primary-darker rounded-full animate-[bounce_1s_infinite_400ms]"></span>
         </div>
         <p className="text-sm text-subtle-light mt-2">
-          Scanning symptoms & identifying patterns...
+          Đang phân tích các triệu chứng & nhận diện bệnh lý...
         </p>
       </div>
     </div>

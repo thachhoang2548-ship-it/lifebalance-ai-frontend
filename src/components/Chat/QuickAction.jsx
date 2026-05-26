@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function QuickActions({ onAction }) {
-  const actions = ["Show diet tips", "Upload image", "When should I see a doctor?"];
+  const actions = ["Gợi ý chế độ ăn", "Tải lên hình ảnh triệu chứng", "Khi nào tôi nên đi khám bác sĩ?"];
 
   return (
     <div className="px-6 pb-2 shrink-0">

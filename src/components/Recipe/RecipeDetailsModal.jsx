@@ -9,12 +9,12 @@ const RecipeDetailsModal = ({ recipe, onClose }) => {
     const fetchHealthInfo = async () => {
       try {
         const res = await api.post("/chat", {
-          message: `Explain why ${recipe.recipe} is healthy and beneficial in short, doctor-like style.`,
+          message: `Giải thích lý do tại sao món ${recipe.recipe} lại tốt cho sức khỏe và có lợi ích gì bằng phong cách bác sĩ ngắn gọn bằng tiếng Việt.`,
         });
         setHealthInfo(res.data.reply);
       } catch (err) {
         console.error(err);
-        setHealthInfo("Could not fetch health insights.");
+        setHealthInfo("Không thể tải thông tin chi tiết về sức khỏe.");
       }
     };
 
@@ -41,12 +41,12 @@ const RecipeDetailsModal = ({ recipe, onClose }) => {
 
         <h2 className="text-2xl font-bold mb-2">{recipe.recipe}</h2>
         <p className="text-gray-600 mb-4">
-          {recipe.calories} Calories
+          {recipe.calories} Calo
         </p>
 
         {recipe.ingredients?.length > 0 && (
           <>
-            <h3 className="font-semibold mb-1">Ingredients:</h3>
+            <h3 className="font-semibold mb-1">Nguyên liệu:</h3>
             <ul className="list-disc ml-5 mb-4">
               {recipe.ingredients.map((ing, i) => (
                 <li key={i}>{ing}</li>
@@ -57,7 +57,7 @@ const RecipeDetailsModal = ({ recipe, onClose }) => {
 
         {recipe.steps?.length > 0 && (
           <>
-            <h3 className="font-semibold mb-1">Steps:</h3>
+            <h3 className="font-semibold mb-1">Các bước thực hiện:</h3>
             <ol className="list-decimal ml-5 mb-4">
               {recipe.steps.map((step, i) => (
                 <li key={i}>{step}</li>
@@ -66,12 +66,12 @@ const RecipeDetailsModal = ({ recipe, onClose }) => {
           </>
         )}
 
-        <h3 className="font-semibold mb-1">Health Insights:</h3>
-        <p className="text-gray-700 mb-4">{healthInfo || "Loading..."}</p>
+        <h3 className="font-semibold mb-1">Thông tin sức khỏe từ bác sĩ AI:</h3>
+        <p className="text-gray-700 mb-4">{healthInfo || "Đang tải..."}</p>
 
         {recipe.youtubeLink && (
           <p className="mt-2">
-            Watch video:{" "}
+            Xem video hướng dẫn:{" "}
             <a
               href={recipe.youtubeLink}
               target="_blank"

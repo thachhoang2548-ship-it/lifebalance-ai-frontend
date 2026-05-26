@@ -14,7 +14,7 @@ const AIBox = ({ onClose, setRecipes }) => {
       onClose();
     } catch (error) {
       console.error(error);
-      alert("AI generation failed. Please try again.");
+      alert("Tạo công thức bằng AI thất bại. Vui lòng thử lại.");
     } finally {
       setLoading(false);
     }
@@ -23,10 +23,10 @@ const AIBox = ({ onClose, setRecipes }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
       <div className="bg-white dark:bg-background-dark p-6 rounded-lg w-96">
-        <h2 className="text-lg font-bold mb-4">Generate Recipes</h2>
+        <h2 className="text-lg font-bold mb-4">Tạo công thức món ăn</h2>
         <input
           type="text"
-          placeholder="What do you want to eat?"
+          placeholder="Hôm nay bạn muốn ăn gì?"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full p-2 border rounded mb-4"
@@ -36,13 +36,13 @@ const AIBox = ({ onClose, setRecipes }) => {
           disabled={loading || !query.trim()}
           className="bg-primary text-white px-4 py-2 rounded w-full disabled:opacity-50"
         >
-          {loading ? "Generating..." : "Generate"}
+          {loading ? "Đang tạo..." : "Tạo công thức"}
         </button>
         <button
           onClick={onClose}
           className="mt-2 text-gray-500 w-full hover:underline"
         >
-          Cancel
+          Hủy
         </button>
       </div>
     </div>

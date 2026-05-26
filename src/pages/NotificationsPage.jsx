@@ -16,7 +16,7 @@ const NotificationsPage = () => {
       setAlerts(res.data.alerts || []);
     } catch (err) {
       console.error(err);
-      toast.error("Failed to load alerts");
+      toast.error("Không thể tải thông báo");
     } finally {
       setLoading(false);
     }
@@ -34,10 +34,10 @@ const NotificationsPage = () => {
           .map((a) => api.put(`/alerts/${a._id}/status`, { status: "resolved" }))
       );
       setAlerts((prev) => prev.map((a) => ({ ...a, status: "resolved" })));
-      toast.success("All alerts marked as resolved");
+      toast.success("Đã đánh dấu tất cả thông báo là đã đọc");
     } catch (err) {
       console.error(err);
-      toast.error("Failed to mark all as resolved");
+      toast.error("Không thể đánh dấu tất cả là đã đọc");
     }
   };
 
@@ -55,14 +55,13 @@ const NotificationsPage = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
           <div className="flex flex-col gap-1">
             <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Notifications
+              Thông báo
             </p>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-              You have{" "}
+              Bạn có{" "}
               <span className="font-bold text-gray-900 dark:text-white">
-                {alerts.length} new
-              </span>{" "}
-              notifications.
+                {alerts.filter(a => a.status !== "resolved").length} thông báo mới
+              </span>.
             </p>
           </div>
 
@@ -71,14 +70,14 @@ const NotificationsPage = () => {
             className="w-full sm:w-auto flex h-10 sm:h-11 items-center justify-center gap-2 rounded-full bg-primary px-4 sm:px-6 text-sm font-bold text-white transition-transform active:scale-95 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900"
           >
             <span className="material-symbols-outlined text-lg sm:text-xl">done_all</span>
-            <span className="whitespace-nowrap">Mark All as Read</span>
+            <span className="whitespace-nowrap">Đánh dấu tất cả là đã đọc</span>
           </button>
         </div>
 
         <NotificationFilters filters={filters} setFilters={setFilters} />
 
         {loading ? (
-          <p>Loading alerts...</p>
+          <p>Đang tải thông báo...</p>
         ) : (
           <NotificationsList alerts={filteredAlerts} setAlerts={setAlerts} />
         )}

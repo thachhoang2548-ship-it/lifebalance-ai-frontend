@@ -5,16 +5,16 @@ export const SleepForm = ({ sleep, setSleep }) => {
         <div className="bg-saffron/10 p-2.5 rounded-full">
           <span className="material-symbols-outlined text-saffron">dark_mode</span>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Sleep Log</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Nhật ký giấc ngủ</h3>
       </div>
 
       <div className="space-y-6">
         <div>
           <div className="flex w-full items-center justify-between mb-2">
             <label className="text-sm font-medium text-gray-600 dark:text-gray-300">
-              How many hours did you sleep?
+              Bạn đã ngủ bao nhiêu tiếng?
             </label>
-            <p className="text-sm font-semibold text-saffron">{sleep.hours || 0} hours</p>
+            <p className="text-sm font-semibold text-saffron">{sleep.hours || 0} giờ</p>
           </div>
 
           <input
@@ -30,7 +30,7 @@ export const SleepForm = ({ sleep, setSleep }) => {
 
         <div>
           <label className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-3 block">
-            How was your sleep quality?
+            Chất lượng giấc ngủ của bạn thế nào?
           </label>
           <div className="flex justify-around items-center">
             {["😞", "😐", "🙂", "😊", "😴"].map((emo, idx) => (

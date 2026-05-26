@@ -17,7 +17,7 @@ export default function ChatInput({ onSend }) {
       <input
         type="text"
         className="flex-1 min-w-0 bg-gray-100 border-transparent focus:border-primary focus:ring-primary rounded-full px-4 py-2.5 text-sm placeholder:text-gray-500"
-        placeholder="Type your health question..."
+        placeholder="Nhập câu hỏi sức khỏe của bạn..."
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}

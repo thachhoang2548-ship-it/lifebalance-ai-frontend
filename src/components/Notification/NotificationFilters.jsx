@@ -15,7 +15,12 @@ const NotificationFilters = ({ filters, setFilters }) => {
                 : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
             }`}
           >
-            <p>{type === "all" ? "All" : type.charAt(0).toUpperCase() + type.slice(1)}</p>
+            <p>
+              {type === "all" && "Tất cả"}
+              {type === "symptom" && "Triệu chứng"}
+              {type === "medication" && "Thuốc"}
+              {type === "resolved" && "Đã xử lý"}
+            </p>
             {type === "all" && (
               <span className={`grid size-5 place-items-center rounded-full text-xs font-bold ${
                 filters.type === type ? "bg-white/20 text-white" : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"

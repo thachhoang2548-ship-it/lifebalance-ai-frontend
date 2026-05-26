@@ -9,11 +9,11 @@ export default function ChatHeader({ onClear }) {
         </div>
         <div>
           <h1 className="text-lg font-bold leading-tight tracking-[-0.015em] text-[#181511] dark:text-white">
-            AI Health Assistant
+            Trợ lý Sức khỏe AI
           </h1>
           <div className="flex items-center gap-1.5">
             <span className="size-2 bg-green-500 rounded-full"></span>
-            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Online</p>
+            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Trực tuyến</p>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@ export default function ChatHeader({ onClear }) {
           onClick={onClear}
           className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-[#181511] text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity"
         >
-          <span className="truncate">Clear Chat</span>
+          <span className="truncate">Xóa trò chuyện</span>
         </button>
       </div>
     </header>

@@ -56,7 +56,7 @@ const Navbar = () => {
       } catch (error) {
         console.error("Failed to upload profile image:", error);
         setProfileImage(getProfileImageUrl(user?.profileImage));
-        const errorMessage = error.response?.data?.message || "Failed to update profile picture. Please try again.";
+        const errorMessage = error.response?.data?.message || "Không thể cập nhật ảnh đại diện. Vui lòng thử lại.";
         alert(errorMessage);
       }
     }
@@ -74,16 +74,16 @@ const Navbar = () => {
             </Link>
 
             <div className="hidden items-center space-x-6 md:flex">
-              <Link to="/dashboard" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/dashboard")}`}>Dashboard</Link>
-              <Link to="/symptom-entry" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/symptom-entry")}`}>Symptom Tracker</Link>
-              <Link to="/daily-monitoring" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/daily-monitoring")}`}>Daily Monitoring</Link>
-              <Link to="/chat" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/chat")}`}>Chatbot</Link>
+              <Link to="/dashboard" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/dashboard")}`}>Bảng điều khiển</Link>
+              <Link to="/symptom-entry" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/symptom-entry")}`}>Theo dõi triệu chứng</Link>
+              <Link to="/daily-monitoring" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/daily-monitoring")}`}>Theo dõi hàng ngày</Link>
+              <Link to="/chat" className={`border-b-2 pb-1 text-sm font-medium ${isActive("/chat")}`}>Trợ lý AI</Link>
             </div>
           </div>
 
           <div className="hidden items-center space-x-6 lg:flex">
-            <Link to="/diet-recipes" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Diet Plan</Link>
-            <Link to="/scheduler" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Medication Schedule</Link>
+            <Link to="/diet-recipes" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Chế độ ăn</Link>
+            <Link to="/scheduler" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Lịch uống thuốc</Link>
           </div>
 
           <div className="hidden items-center space-x-4 md:flex">
@@ -98,10 +98,10 @@ const Navbar = () => {
               </button>
 
               <div className={`absolute right-0 mt-2 w-48 origin-top-right rounded-lg bg-white dark:bg-gray-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition-opacity duration-200 ${dropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-                <button onClick={triggerFileInput} className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Change Profile Pic</button>
+                <button onClick={triggerFileInput} className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Thay ảnh đại diện</button>
                 <input type="file" ref={fileInputRef} onChange={handleImageUpload} className="hidden" accept="image/*" />
                 <div className="my-1 h-px bg-gray-200 dark:bg-gray-600"></div>
-                <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</Link>
+                <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Đăng xuất</Link>
               </div>
             </div>
           </div>
@@ -123,32 +123,32 @@ const Navbar = () => {
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0 py-0"}`}>
           <div className="space-y-2 px-2 pt-2 pb-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
             <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)} className={`block rounded-md px-3 py-2 text-base font-medium ${location.pathname === "/dashboard" ? "bg-primary/10 text-primary dark:text-primary-light" : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">dashboard</span>Dashboard</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">dashboard</span>Bảng điều khiển</div>
             </Link>
             <Link to="/symptom-entry" onClick={() => setMobileMenuOpen(false)} className={`block rounded-md px-3 py-2 text-base font-medium ${location.pathname === "/symptom-entry" ? "bg-primary/10 text-primary dark:text-primary-light" : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">clinical_notes</span>Symptom Tracker</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">clinical_notes</span>Theo dõi triệu chứng</div>
             </Link>
             <Link to="/daily-monitoring" onClick={() => setMobileMenuOpen(false)} className={`block rounded-md px-3 py-2 text-base font-medium ${location.pathname === "/daily-monitoring" ? "bg-primary/10 text-primary dark:text-primary-light" : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">ecg_heart</span>Daily Monitoring</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">ecg_heart</span>Theo dõi hàng ngày</div>
             </Link>
             <Link to="/chat" onClick={() => setMobileMenuOpen(false)} className={`block rounded-md px-3 py-2 text-base font-medium ${location.pathname === "/chat" ? "bg-primary/10 text-primary dark:text-primary-light" : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">smart_toy</span>Chatbot</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">smart_toy</span>Trợ lý AI</div>
             </Link>
             <Link to="/diet-recipes" onClick={() => setMobileMenuOpen(false)} className={`block rounded-md px-3 py-2 text-base font-medium ${location.pathname === "/diet-recipes" ? "bg-primary/10 text-primary dark:text-primary-light" : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">restaurant_menu</span>Diet Plan</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">restaurant_menu</span>Chế độ ăn</div>
             </Link>
             <Link to="/scheduler" onClick={() => setMobileMenuOpen(false)} className={`block rounded-md px-3 py-2 text-base font-medium ${location.pathname === "/scheduler" ? "bg-primary/10 text-primary dark:text-primary-light" : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">calendar_month</span>Medication Schedule</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">calendar_month</span>Lịch uống thuốc</div>
             </Link>
 
             <div className="my-2 h-px bg-gray-200 dark:bg-gray-700"></div>
 
             <button onClick={() => { triggerFileInput(); setMobileMenuOpen(false); }} className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">account_circle</span>Change Profile Pic</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">account_circle</span>Thay ảnh đại diện</div>
             </button>
 
             <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="block rounded-md px-3 py-2 text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20">
-              <div className="flex items-center gap-3"><span className="material-symbols-outlined">logout</span>Logout</div>
+              <div className="flex items-center gap-3"><span className="material-symbols-outlined">logout</span>Đăng xuất</div>
             </Link>
           </div>
         </div>

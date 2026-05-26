@@ -22,7 +22,7 @@ export default function Login() {
       login(user, token);
       navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.response?.data?.message || "Đăng nhập thất bại");
     } finally {
       setLoading(false);
     }
@@ -40,8 +40,8 @@ export default function Login() {
         <div className="w-full max-w-md space-y-8">
           <div className="glassmorphic rounded-2xl p-8 shadow-2xl">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-800">Welcome Back</h2>
-              <p className="mt-2 text-gray-600">Sign in to continue your care journey.</p>
+              <h2 className="text-3xl font-bold text-gray-800">Chào mừng trở lại</h2>
+              <p className="mt-2 text-gray-600">Đăng nhập để tiếp tục hành trình chăm sóc sức khỏe.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -51,7 +51,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="Email address"
+                placeholder="Địa chỉ Email"
                 className="form-input block w-full rounded-lg border-transparent bg-white/70 py-3 px-4 text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#F4C430] transition"
               />
               <input
@@ -60,14 +60,14 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="Password"
+                placeholder="Mật khẩu"
                 className="form-input block w-full rounded-lg border-transparent bg-white/70 py-3 px-4 text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#F4C430] transition"
               />
               {error && <p className="text-red-500 text-sm">{error}</p>}
 
               <div className="flex justify-between text-sm">
                 <a href="#" className="font-semibold text-gray-700 hover:text-[#F4C430]">
-                  Forgot password?
+                  Quên mật khẩu?
                 </a>
               </div>
 
@@ -76,14 +76,14 @@ export default function Login() {
                 disabled={loading}
                 className="flex w-full justify-center rounded-lg bg-[#F4C430] px-3 py-3 text-sm font-semibold leading-6 text-white shadow-lg hover:bg-[#F7D567] hover:text-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C430] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? "Signing In..." : "Sign In"}
+                {loading ? "Đang đăng nhập..." : "Đăng nhập"}
               </button>
             </form>
 
             <p className="mt-8 text-center text-sm text-gray-600">
-              Not a member?{" "}
+              Chưa có tài khoản?{" "}
               <a href="/register" className="font-semibold text-gray-700 hover:text-[#F4C430]">
-                Register now
+                Đăng ký ngay
               </a>
             </p>
           </div>

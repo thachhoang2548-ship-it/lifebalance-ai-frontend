@@ -3,7 +3,9 @@ import "../../styles/MealPage.css";
 
 const badgeColors = {
   "High Fiber": "badge-green",
+  "Nhiều chất xơ": "badge-green",
   "Easy Digest": "badge-blue",
+  "Dễ tiêu hóa": "badge-blue",
   "Omega-3 Rich": "badge-orange",
   "Anti-Inflammatory": "badge-yellow",
   "Antioxidants": "badge-purple",
@@ -18,7 +20,7 @@ const RecipeCard = ({ recipe, onClick }) => {
       <div className="relative">
         {imgLoading && !imgError && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-            <span className="text-gray-400">Loading image...</span>
+            <span className="text-gray-400">Đang tải ảnh...</span>
           </div>
         )}
         <img

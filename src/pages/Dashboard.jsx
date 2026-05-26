@@ -48,26 +48,26 @@ const Dashboard = () => {
 
   const handleManualRefresh = () => fetchData(true);
 
-  if (loading) return <div className="p-6">Loading dashboard...</div>;
+  if (loading) return <div className="p-6">Đang tải bảng điều khiển...</div>;
   if (error) return <div className="p-6 text-red-500">{error}</div>;
 
   return (
     <div className="p-4 sm:p-6 lg:p-8">
       <header className="mb-8 flex justify-between items-start">
         <div>
-          <h1 className="text-3xl font-bold">My Health Dashboard</h1>
-          <p className="text-subtle-light mt-1">Welcome back, here's your health overview.</p>
+          <h1 className="text-3xl font-bold">Bảng theo dõi sức khỏe</h1>
+          <p className="text-subtle-light mt-1">Chào mừng trở lại, đây là tổng quan sức khỏe của bạn.</p>
         </div>
         <button
           onClick={handleManualRefresh}
           disabled={refreshing}
           className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          title="Refresh dashboard data"
+          title="Làm mới dữ liệu"
         >
           <span className="material-symbols-outlined">
             {refreshing ? "progress_activity" : "refresh"}
           </span>
-          {refreshing ? "Refreshing..." : "Refresh"}
+          {refreshing ? "Đang làm mới..." : "Làm mới"}
         </button>
       </header>
 
@@ -77,7 +77,7 @@ const Dashboard = () => {
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <img src={sthethoscope} alt="Stethoscope" className="w-5 h-5" />
             </div>
-            <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Symptom Trends</h2>
+            <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Xu hướng triệu chứng</h2>
           </div>
           <div className="p-6 h-64">
             <SymptomTrendsChart entries={data.symptomEntries} />

@@ -42,11 +42,11 @@ const DailyMonitoringPage = () => {
 
     try {
       await createDailyMonitoring(payload);
-      alert("Daily Log Saved Successfully!");
+      alert("Đã lưu nhật ký hàng ngày thành công!");
       navigate("/dashboard");
     } catch (err) {
       console.error("Error saving daily monitoring:", err);
-      alert(err.message || "Error saving log. Please try again.");
+      alert(err.message || "Không thể lưu nhật ký. Vui lòng thử lại.");
     } finally {
       setLoading(false);
     }
@@ -57,10 +57,10 @@ const DailyMonitoringPage = () => {
       <div className="max-w-7xl mx-auto">
         <header className="mb-6">
           <h1 className="text-4xl font-black tracking-tighter text-gray-900 dark:text-white">
-            Daily Check-In
+            Nhật ký hàng ngày
           </h1>
           <p className="text-base text-gray-500 dark:text-gray-400 mt-1">
-            Track your daily health in under 20 seconds.
+            Theo dõi sức khỏe hàng ngày của bạn chỉ trong 20 giây.
           </p>
         </header>
 

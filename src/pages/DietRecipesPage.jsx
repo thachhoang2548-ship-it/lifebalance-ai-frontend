@@ -27,7 +27,7 @@ const DietRecipesPage = () => {
           day: d.day,
           ...m,
           protein: m.protein ?? Math.floor(Math.random() * 30) + 5,
-          badges: m.badges ?? ["High Fiber", "Easy Digest"],
+          badges: m.badges ?? ["Nhiều chất xơ", "Dễ tiêu hóa"],
         }))
       );
 
@@ -57,9 +57,9 @@ const DietRecipesPage = () => {
     <div className="meal-page font-display bg-background-light dark:bg-background-dark text-[#181511] dark:text-white/90 min-h-screen relative">
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <header className="mb-8">
-          <h1 className="text-4xl font-black tracking-tighter">Diet Recipes</h1>
+          <h1 className="text-4xl font-black tracking-tighter">Chế độ ăn & Công thức</h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
-            Find nourishing and delicious recipes tailored to your health needs.
+            Tìm kiếm các công thức ăn uống bổ dưỡng và thơm ngon được thiết kế riêng cho sức khỏe của bạn.
           </p>
         </header>
 
@@ -68,7 +68,7 @@ const DietRecipesPage = () => {
             <span className="material-symbols-outlined pl-4 text-gray-400">search</span>
             <input
               className="search-input"
-              placeholder="Search for recipes, ingredients..."
+              placeholder="Tìm kiếm công thức nấu ăn, nguyên liệu..."
               value={filters.search}
               onChange={(e) =>
                 setFilters((prev) => ({ ...prev, search: e.target.value }))

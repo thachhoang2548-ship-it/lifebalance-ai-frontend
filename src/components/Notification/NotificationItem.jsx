@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import api from "../../services/api";
 
 const severityColors = {
-  low: { border: "border-green-500", bg: "bg-green-100", text: "text-green-600", label: "Low" },
-  medium: { border: "border-yellow-500", bg: "bg-yellow-100", text: "text-yellow-600", label: "Medium" },
-  high: { border: "border-red-500", bg: "bg-red-100", text: "text-red-600", label: "High" },
-  50: { border: "border-yellow-500", bg: "bg-yellow-100", text: "text-yellow-600", label: "Medium" },
-  100: { border: "border-red-500", bg: "bg-red-100", text: "text-red-600", label: "High" },
+  low: { border: "border-green-500", bg: "bg-green-100", text: "text-green-600", label: "Thấp" },
+  medium: { border: "border-yellow-500", bg: "bg-yellow-100", text: "text-yellow-600", label: "Trung bình" },
+  high: { border: "border-red-500", bg: "bg-red-100", text: "text-red-600", label: "Cao" },
+  50: { border: "border-yellow-500", bg: "bg-yellow-100", text: "text-yellow-600", label: "Trung bình" },
+  100: { border: "border-red-500", bg: "bg-red-100", text: "text-red-600", label: "Cao" },
 };
 
 const NotificationItem = ({ alert, setAlerts }) => {
@@ -43,7 +43,7 @@ const NotificationItem = ({ alert, setAlerts }) => {
           <div className="flex flex-1 flex-col justify-center gap-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <p className="text-sm sm:text-base font-bold text-gray-900 dark:text-white truncate">
-                {alert.type.charAt(0).toUpperCase() + alert.type.slice(1)} Alert
+                Cảnh báo {alert.type === "medication" ? "uống thuốc" : "triệu chứng"}
               </p>
               <div className={`inline-flex rounded-full px-2 py-0.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider ${sev.bg} ${sev.text}`}>
                 {sev.label}
@@ -64,7 +64,7 @@ const NotificationItem = ({ alert, setAlerts }) => {
               className="flex h-8 sm:h-9 items-center justify-center rounded-full bg-primary/10 hover:bg-primary text-primary hover:text-white px-3 sm:px-4 text-xs sm:text-sm font-bold transition-colors duration-200"
             >
               <span className="material-symbols-outlined mr-1.5 text-base">check_circle</span>
-              Resolve
+              Đã đọc
             </button>
           </div>
         )}
@@ -72,7 +72,7 @@ const NotificationItem = ({ alert, setAlerts }) => {
 
       {expanded && alert.details && (
         <div className="mt-3 pl-[52px] sm:pl-[64px] flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
-          <p className="text-sm font-semibold text-gray-900 dark:text-white">Details:</p>
+          <p className="text-sm font-semibold text-gray-900 dark:text-white">Chi tiết:</p>
           <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{alert.details}</p>
         </div>
       )}

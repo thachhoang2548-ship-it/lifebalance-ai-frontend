@@ -5,13 +5,13 @@ export const WaterForm = ({ water, setWater }) => {
         <div className="bg-saffron/10 p-2.5 rounded-full">
           <span className="material-symbols-outlined text-saffron">water_drop</span>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Water Intake</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Lượng nước uống</h3>
       </div>
 
       <div className="flex items-center justify-between gap-6">
         <div className="flex-1">
           <label className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2 block">
-            How many cups of water?
+            Hôm nay bạn uống bao nhiêu cốc nước?
           </label>
           <div className="flex items-center gap-3">
             <button

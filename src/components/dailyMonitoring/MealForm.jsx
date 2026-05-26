@@ -5,14 +5,14 @@ export const MealForm = ({ meals, setMeals }) => {
         <div className="bg-saffron/10 p-2.5 rounded-full">
           <span className="material-symbols-outlined text-saffron">restaurant</span>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Meals Log</h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Nhật ký ăn uống</h3>
       </div>
 
       <div className="space-y-4">
         {[
-          { key: "breakfast", label: "Breakfast" },
-          { key: "lunch", label: "Lunch" },
-          { key: "dinner", label: "Dinner" },
+          { key: "breakfast", label: "Bữa sáng" },
+          { key: "lunch", label: "Bữa trưa" },
+          { key: "dinner", label: "Bữa tối" },
         ].map((meal) => (
           <div key={meal.key} className="flex justify-between items-center">
             <p className="font-medium text-gray-700 dark:text-gray-300">{meal.label}</p>
@@ -25,7 +25,7 @@ export const MealForm = ({ meals, setMeals }) => {
                     : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
                 }`}
               >
-                Taken
+                Đã ăn
               </button>
               <button
                 onClick={() => setMeals({ ...meals, [meal.key]: false })}
@@ -35,7 +35,7 @@ export const MealForm = ({ meals, setMeals }) => {
                     : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
                 }`}
               >
-                Skipped
+                Bỏ qua
               </button>
             </div>
           </div>

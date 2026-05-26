@@ -18,7 +18,7 @@ const SymptomCard = ({ entries = [] }) => {
         labels,
         datasets: [
           {
-            label: "Symptom Severity",
+            label: "Mức độ nghiêm trọng",
             data: dataPoints,
             fill: true,
             borderColor: "#F5B947",
@@ -49,13 +49,13 @@ const SymptomCard = ({ entries = [] }) => {
         <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
          
         </div>
-        <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Symptom Trends</h2>
+        <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Xu hướng triệu chứng</h2>
       </div>
       <div className="p-6">
         <canvas ref={chartRef}></canvas>
       </div>
       <div className="p-6 border-t border-border-light">
-        <h3 className="font-semibold mb-2 text-text-light dark:text-text-dark">Latest Entries</h3>
+        <h3 className="font-semibold mb-2 text-text-light dark:text-text-dark">Lịch sử ghi gần đây</h3>
         <ul className="space-y-2 max-h-40 overflow-y-auto">
           {entries.slice(-5).reverse().map((e) => (
             <li key={e._id} className="flex justify-between border-b border-gray-200 py-1">

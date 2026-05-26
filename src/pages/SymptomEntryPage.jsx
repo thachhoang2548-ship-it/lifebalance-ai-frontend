@@ -21,9 +21,9 @@ const SymptomEntryPage = () => {
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto font-display text-text-light bg-background-light min-h-screen">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold">Symptom Analysis</h1>
+        <h1 className="text-3xl font-bold">Phân tích triệu chứng</h1>
         <p className="text-subtle-light mt-1">
-          Enter your symptoms and upload an image for AI review.
+          Nhập triệu chứng của bạn và tải lên hình ảnh để AI phân tích.
         </p>
       </header>
 
@@ -38,7 +38,7 @@ const SymptomEntryPage = () => {
 
           <div className="flex flex-col gap-6">
             <div className="bg-surface-light rounded-DEFAULT shadow-soft p-5 sm:p-6 sticky top-8">
-              <h3 className="text-lg font-semibold mb-4 text-text-light">Image Preview</h3>
+              <h3 className="text-lg font-semibold mb-4 text-text-light">Xem trước hình ảnh</h3>
               <ImagePreview image={imagePreview} />
             </div>
           </div>

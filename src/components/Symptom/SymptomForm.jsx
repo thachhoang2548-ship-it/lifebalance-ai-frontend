@@ -14,7 +14,7 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
     const file = e.target.files[0];
     if (!file) return;
     if (!allowedTypes.includes(file.type)) {
-      toast.error("Only PNG, JPG, WEBP, or AVIF images are allowed.");
+      toast.error("Chỉ chấp nhận hình ảnh PNG, JPG, WEBP hoặc AVIF.");
       return;
     }
     setImage(file);
@@ -23,7 +23,7 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!text.trim()) return toast.error("Please describe your symptoms.");
+    if (!text.trim()) return toast.error("Vui lòng mô tả triệu chứng của bạn.");
     setSubmitting(true);
     setLoading(true);
     setResult(null);
@@ -36,10 +36,10 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
       const res = await axios.post("/symptoms", formData);
 
       setResult(res.data);
-      toast.success("Symptom analyzed successfully!");
+      toast.success("Đã phân tích triệu chứng thành công!");
     } catch (err) {
       console.error(err);
-      toast.error("Failed to analyze symptoms.");
+      toast.error("Phân tích triệu chứng thất bại.");
     } finally {
       setSubmitting(false);
       setLoading(false);
@@ -54,20 +54,20 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
 
   return (
     <div className="bg-surface-light rounded-DEFAULT shadow-soft p-5 sm:p-6">
-      <h2 className="text-xl font-bold mb-4">Symptom Form</h2>
+      <h2 className="text-xl font-bold mb-4">Form Nhập Triệu Chứng</h2>
       <form className="space-y-6" onSubmit={handleSubmit}>
         <div>
           <label
             htmlFor="symptom-description"
             className="block text-sm font-medium text-text-light mb-1"
           >
-            Describe your symptoms
+            Mô tả triệu chứng của bạn
           </label>
           <textarea
             id="symptom-description"
             rows={5}
             className="w-full rounded-lg border border-border-light focus:ring-primary-darker focus:border-primary-darker resize-none transition"
-            placeholder="e.g., I have a persistent rash on my arm..."
+            placeholder="Ví dụ: Tôi bị phát ban dai dẳng trên cánh tay..."
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
@@ -78,7 +78,7 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
             htmlFor="file-upload"
             className="block text-sm font-medium text-text-light mb-1"
           >
-            Upload an image
+            Tải lên hình ảnh
           </label>
           <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-300 px-6 py-10">
             <div className="text-center">
@@ -90,7 +90,7 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
                   htmlFor="file-upload"
                   className="relative cursor-pointer rounded-md bg-white font-semibold text-primary-darker hover:text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-primary-darker focus-within:ring-offset-2"
                 >
-                  <span>Upload a file</span>
+                  <span>Tải lên tệp</span>
                   <input
                     type="file"
                     id="file-upload"
@@ -98,10 +98,10 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
                     onChange={handleImageChange}
                   />
                 </label>
-                <p className="pl-1">or drag and drop</p>
+                <p className="pl-1">hoặc kéo và thả</p>
               </div>
               <p className="text-xs leading-5 text-gray-500 mt-2">
-                PNG, JPG, WEBP, AVIF up to 10MB
+                PNG, JPG, WEBP, AVIF tối đa 10MB
               </p>
             </div>
           </div>
@@ -117,14 +117,14 @@ const SymptomForm = ({ setResult, setImagePreview, setLoading }) => {
                 : "bg-primary-darker hover:bg-primary"
             }`}
           >
-            {submitting ? "Analyzing..." : "Submit for Analysis"}
+            {submitting ? "Đang phân tích..." : "Gửi phân tích"}
           </button>
           <button
             type="button"
             onClick={resetForm}
             className="w-full sm:w-auto justify-center inline-flex items-center px-6 py-3 text-base font-medium rounded-lg shadow-sm text-text-light bg-white hover:bg-gray-50"
           >
-            Reset
+            Đặt lại
           </button>
         </div>
       </form>

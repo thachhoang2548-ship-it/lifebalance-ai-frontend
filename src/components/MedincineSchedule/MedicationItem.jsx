@@ -41,7 +41,7 @@ const MedicationItem = ({ med, onUpdate, onDelete }) => {
             }`}
           >
             <span className="material-symbols-outlined text-xl mr-1">check_circle</span>
-            Taken
+            Đã uống
           </button>
           <button
             onClick={() => handleStatus("skipped")}
@@ -50,12 +50,12 @@ const MedicationItem = ({ med, onUpdate, onDelete }) => {
             }`}
           >
             <span className="material-symbols-outlined text-xl mr-1">cancel</span>
-            Skipped
+            Bỏ qua
           </button>
         </div>
         <div className="flex items-center gap-1">
           <button
-            onClick={() => alert("Edit feature coming soon")}
+            onClick={() => alert("Tính năng chỉnh sửa sắp được cập nhật")}
             className="flex items-center justify-center rounded-full h-9 w-9 text-[#8a8060] dark:text-white/70 hover:bg-[#f5f3f0] dark:hover:bg-primary/20"
           >
             <span className="material-symbols-outlined text-xl">edit</span>

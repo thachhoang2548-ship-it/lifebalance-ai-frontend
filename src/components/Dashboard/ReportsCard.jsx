@@ -18,7 +18,7 @@ const ReportsCard = () => {
       link.remove();
     } catch (error) {
       console.error(error);
-      alert("Failed to download report.");
+      alert("Không thể tải xuống báo cáo.");
     } finally {
       setLoading(false);
     }
@@ -30,7 +30,7 @@ const ReportsCard = () => {
         <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
           <img src={reportIcon} alt="Report Icon" className="w-5 h-5" />
         </div>
-        <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Reports</h2>
+        <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Báo cáo</h2>
       </div>
       <div className="p-6">
         <button
@@ -38,7 +38,7 @@ const ReportsCard = () => {
           disabled={loading}
           className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 disabled:opacity-50"
         >
-          {loading ? "Downloading..." : "Download Latest Report"}
+          {loading ? "Đang tải xuống..." : "Tải báo cáo mới nhất"}
         </button>
       </div>
     </div>

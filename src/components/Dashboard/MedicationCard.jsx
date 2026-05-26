@@ -30,8 +30,17 @@ const MedicationCard = ({ meds }) => {
     }
   };
 
+  const getStatusTextVN = (status) => {
+    switch (status?.toLowerCase()) {
+      case "taken": return "Đã uống";
+      case "skipped": return "Bỏ qua";
+      case "pending": return "Đang chờ";
+      default: return "Sắp tới";
+    }
+  };
+
   const formatTimes = (times) => {
-    if (!times || times.length === 0) return "No time set";
+    if (!times || times.length === 0) return "Chưa đặt giờ";
     return times
       .map((time) => {
         const [hour, minute] = time.split(":");
@@ -48,7 +57,7 @@ const MedicationCard = ({ meds }) => {
             <img src={PillIcon} alt="Pill Icon" className="w-6 h-6" />
           </div>
           <h2 className="text-xl font-bold text-text-light dark:text-text-dark">
-            Medication Schedule
+            Lịch uống thuốc
           </h2>
         </div>
         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 text-sm font-bold text-white">
@@ -59,7 +68,7 @@ const MedicationCard = ({ meds }) => {
       <div className="p-6 space-y-4 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
         {safeMeds.length === 0 ? (
           <p className="text-subtle-light dark:text-subtle-dark text-center py-4">
-            No medications scheduled
+            Chưa có lịch uống thuốc
           </p>
         ) : (
           safeMeds.map((med) => (
@@ -73,20 +82,20 @@ const MedicationCard = ({ meds }) => {
               <div className="flex-1">
                 <p className="font-semibold text-base">{med.medName}</p>
                 <p className="text-sm mt-1">
-                  <span className="font-medium">Dosage:</span> {med.dosage}
+                  <span className="font-medium">Liều lượng:</span> {med.dosage}
                 </p>
                 <p className="text-sm mt-1">
-                  <span className="font-medium">Time:</span> {formatTimes(med.times)}
+                  <span className="font-medium">Thời gian:</span> {formatTimes(med.times)}
                 </p>
                 {med.notes && (
                   <p className="text-xs mt-2 opacity-80">
-                    <span className="font-medium">Note:</span> {med.notes}
+                    <span className="font-medium">Ghi chú:</span> {med.notes}
                   </p>
                 )}
               </div>
               <div className="flex-shrink-0">
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
-                  {med.status || "Upcoming"}
+                  {getStatusTextVN(med.status)}
                 </span>
               </div>
             </div>

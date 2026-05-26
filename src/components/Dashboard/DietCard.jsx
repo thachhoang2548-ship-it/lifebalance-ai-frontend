@@ -2,7 +2,32 @@ import fork from "../../assets/DashboardAssets/cutlery.png";
 
 const DietCard = ({ diet }) => {
   const meals = diet?.meals || [];
-  const day = diet?.day || "Today";
+  
+  const getTranslatedDay = (day) => {
+    if (!day || day.toLowerCase() === "today") return "Hôm nay";
+    const days = {
+      monday: "Thứ Hai",
+      tuesday: "Thứ Ba",
+      wednesday: "Thứ Tư",
+      thursday: "Thứ Năm",
+      friday: "Thứ Sáu",
+      saturday: "Thứ Bảy",
+      sunday: "Chủ Nhật"
+    };
+    return days[day.toLowerCase()] || day;
+  };
+
+  const getMealTypeVN = (type) => {
+    switch (type?.toLowerCase()) {
+      case "breakfast": return "Bữa sáng";
+      case "lunch": return "Bữa trưa";
+      case "dinner": return "Bữa tối";
+      case "snack": return "Bữa phụ";
+      default: return type;
+    }
+  };
+
+  const day = getTranslatedDay(diet?.day);
 
   return (
     <div className="w-full lg:col-span-1 xl:col-span-1 bg-surface-light dark:bg-surface-dark rounded-DEFAULT shadow-soft overflow-hidden">
@@ -10,12 +35,14 @@ const DietCard = ({ diet }) => {
         <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
           <img src={fork} alt="Fork" className="w-5 h-5" />
         </div>
-        <h2 className="text-xl font-bold text-text-light dark:text-text-dark">{day}'s Diet</h2>
+        <h2 className="text-xl font-bold text-text-light dark:text-text-dark">
+          {day === "Hôm nay" ? "Chế độ ăn hôm nay" : `Chế độ ăn ${day}`}
+        </h2>
       </div>
 
       <div className="p-6 space-y-4 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
         {meals.length === 0 ? (
-          <p className="text-gray-500 dark:text-gray-400 text-center py-4">No meals scheduled for today.</p>
+          <p className="text-gray-500 dark:text-gray-400 text-center py-4">Chưa có bữa ăn nào được lên lịch.</p>
         ) : (
           meals.map((meal, idx) => (
             <div
@@ -24,7 +51,7 @@ const DietCard = ({ diet }) => {
             >
               <div className="flex justify-between items-start">
                 <span className="px-2 py-1 rounded-md bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs font-bold uppercase tracking-wider">
-                  {meal.mealType}
+                  {getMealTypeVN(meal.mealType)}
                 </span>
                 {meal.calories > 0 && (
                   <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">

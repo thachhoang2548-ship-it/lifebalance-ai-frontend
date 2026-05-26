@@ -14,7 +14,7 @@ const AlertsCard = ({ alerts }) => {
           <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
             <img src={bell} alt="Alert Icon" className="w-5 h-5" />
           </div>
-          <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Alerts & Notifications</h2>
+          <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Cảnh báo & Thông báo</h2>
         </div>
         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-sm font-bold text-white">
           {alerts.length}

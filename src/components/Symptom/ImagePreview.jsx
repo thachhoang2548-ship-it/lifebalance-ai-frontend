@@ -12,7 +12,7 @@ const ImagePreview = ({ image }) => (
     ) : (
       <div className="text-center text-subtle-light">
         <span className="material-symbols-outlined text-4xl">image</span>
-        <p className="text-sm mt-1">Image will appear here</p>
+        <p className="text-sm mt-1">Hình ảnh sẽ hiển thị ở đây</p>
       </div>
     )}
   </div>

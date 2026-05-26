@@ -75,10 +75,10 @@ const MedicationScheduler = () => {
       <div className="flex flex-col gap-8">
         <header className="flex flex-col gap-1">
           <h1 className="text-[#181611] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
-            Medication Scheduler
+            Lịch uống thuốc
           </h1>
           <p className="text-[#8a8060] dark:text-white/70 text-base font-normal leading-normal">
-            Manage and track your medication adherence with ease.
+            Quản lý và theo dõi việc uống thuốc của bạn một cách dễ dàng.
           </p>
         </header>
 
@@ -88,7 +88,7 @@ const MedicationScheduler = () => {
           </div>
           <div className="lg:col-span-2 flex flex-col gap-6">
             <h2 className="text-[#181611] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">
-              Today's Schedule
+              Lịch trình hôm nay
             </h2>
             <MedicationList
               medications={medications}

@@ -14,7 +14,7 @@ const AIModal = ({ onClose, onGenerate }) => {
       onClose();
     } catch (error) {
       console.error(error);
-      alert("Failed to generate meals. Please try again.");
+      alert("Tạo món ăn thất bại. Vui lòng thử lại.");
     } finally {
       setLoading(false);
     }
@@ -29,7 +29,7 @@ const AIModal = ({ onClose, onGenerate }) => {
         >
           ✕
         </button>
-        <h2 className="text-lg font-bold mb-2">Ask AI for meals</h2>
+        <h2 className="text-lg font-bold mb-2">Yêu cầu AI gợi ý món ăn</h2>
         <textarea
           className="w-full p-2 border rounded mb-2 dark:bg-background-dark dark:text-white"
           rows={4}
@@ -42,7 +42,7 @@ const AIModal = ({ onClose, onGenerate }) => {
           onClick={handleSubmit}
           disabled={loading || !query.trim()}
         >
-          {loading ? "Generating..." : "Generate Meals"}
+          {loading ? "Đang tạo..." : "Tạo món ăn"}
         </button>
       </div>
     </div>
