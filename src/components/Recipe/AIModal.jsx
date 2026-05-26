@@ -35,7 +35,7 @@ const AIModal = ({ onClose, onGenerate }) => {
           rows={4}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="I want Indian vegetarian meals..."
+          placeholder="Gợi ý món chay giá sinh viên, ít cay..."
         />
         <button
           className="bg-primary text-white px-4 py-2 rounded w-full disabled:opacity-50"
